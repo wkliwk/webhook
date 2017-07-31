@@ -1,0 +1,21 @@
+{
+	"extends": ["google"],
+	"rules": {
+		"no-console": ["error", { "allow": ["warn", "error", "log"] }],
+		"semi": ["error", "never"],
+		"comma-dangle": ["error", "never"],
+		"max-len": ["warn", {"code": 100, "ignoreUrls": true}],
+		"space-before-function-paren": ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
+        "arrow-parens": ["error", "as-needed"],
+        "require-jsdoc": "warn",
+		"no-tabs": 0,
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
+	},
+    "env": {
+        "node": true,
+        "es6": true
+    },
+	"parserOptions": {
+		"ecmaVersion": 8
+    }
+}

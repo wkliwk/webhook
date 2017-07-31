@@ -1,45 +1,28 @@
 {
-  "name": "nodejs-getting-started",
+  "name": "webhooker",
   "version": "1.0.0",
-  "description": "End to end sample for running Node.js applications on Google Cloud Platform",
-  "repository": "https://github.com/GoogleCloudPlatform/nodejs-getting-started",
-  "private": true,
+  "description": "Webhook tester",
+  "repository": "",
   "scripts": {
     "start": "node app.js",
-    "e2e": "rm -rf node_modules/ &&  samples test build --deploy --timeout 20m --builderProject $GCLOUD_PROJECT",
+	"lint": "eslint ./** --ext .js --fix",
+	"e2e": "rm -rf node_modules/ &&  samples test build --deploy --timeout 20m --builderProject $GCLOUD_PROJECT",
     "test": "samples test app",
     "cover": "nyc --cache npm test; nyc report --reporter=html"
   },
-  "author": "Google Inc.",
-  "contributors": [
-    {
-      "name": "Jon Wayne Parrott",
-      "email": "jonwayne@google.com"
-    },
-    {
-      "name": "Jonathan Simon",
-      "email": "jbsimon@google.com"
-    },
-    {
-      "name": "Jason Dobry",
-      "email": "jdobry@google.com"
-    },
-    {
-      "name": "Ace Nassri",
-      "email": "anassri@google.com"
-    }
-  ],
+  "author": "wkliwk",
   "cloud-repo-tools": {
     "requiresKeyFile": true,
     "requiresProjectId": true,
     "test": {
       "app": {
-        "args": ["app.js"],
+        "args": [
+          "app.js"
+        ],
         "msg": "Hello, world!"
       }
     }
   },
-  "license": "Apache-2.0",
   "semistandard": {
     "globals": [
       "after",
@@ -51,11 +34,14 @@
     ]
   },
   "dependencies": {
-    "express": "~4.15.2"
+    "body-parser": "^1.17.2",
+    "eslint": "^4.3.0",
+    "eslint-config-google": "^0.9.1",
+    "express": "^4.15.3"
   },
   "devDependencies": {
-    "ava": "~0.19.1",
     "@google-cloud/nodejs-repo-tools": "1.4.15",
+    "ava": "~0.19.1",
     "supertest": "~3.0.0",
     "tap-dot": "~1.0.5"
   },
