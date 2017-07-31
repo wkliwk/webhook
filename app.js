@@ -7,6 +7,7 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+app.set('json spaces', 2)
 
 // [START hello_world]
 // Say hello!
