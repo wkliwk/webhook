@@ -31,6 +31,25 @@ app.post('/webhook', (req, res) => {
   res.status(200).json(resJson(req))
 })
 
+//PUT
+app.put('/webhook', (req, res) => {
+  // console.log(req)
+  res.status(200).json(resJson(req))
+})
+
+//DELETE
+app.delete('/webhook', (req, res) => {
+  // console.log(req)
+  res.status(200).json(resJson(req))
+})
+
+//PATCH
+//DELETE
+app.patch('/webhook', (req, res) => {
+  // console.log(req)
+  res.status(200).json(resJson(req))
+})
+
 if (module === require.main) {
   // [START server]
   // Start the server
