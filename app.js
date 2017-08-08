@@ -9,23 +9,27 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.set('json spaces', 2)
 
-// [START hello_world]
-// Say hello!
-app.get('/', (req, res) => {
-  console.log(req)
-  // console.log(res)
+function resJson(req) {
   const body = req.body ? req.body : null
   const header = req.headers ? req.headers : null
   const url = req.url ? `${header.host}${req.url}` : null
   const method = req.method ? req.method : null
-  const queryStr = req.query? req.query : null
+  const queryStr = req.query ? req.query : null
+  return {method, url, queryStr, body, header}
+}
 
-  // console.log(res.headers)
-  const resJson = {method, url, queryStr, body, header}
-  res.status(200).json(resJson)
+// GET
+app.get('/webhook', (req, res) => {
+  // console.log(req)
+  // console.log(res)
+  res.status(200).json(resJson(req))
 })
 
-// [END hello_world]
+// POST
+app.post('/webhook', (req, res) => {
+  // console.log(req)
+  res.status(200).json(resJson(req))
+})
 
 if (module === require.main) {
   // [START server]
